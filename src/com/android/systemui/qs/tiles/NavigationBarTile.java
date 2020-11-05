@@ -1,5 +1,6 @@
 package com.android.systemui.qs.tiles;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableStringBuilder;
