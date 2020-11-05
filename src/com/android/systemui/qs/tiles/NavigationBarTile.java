@@ -36,7 +36,7 @@ public class NavigationBarTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return 0;
+        return 1;
     }
 
     @Override
