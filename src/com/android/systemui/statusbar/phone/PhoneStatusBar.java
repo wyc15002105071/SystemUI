@@ -702,6 +702,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         addNavigationBar();
 
+
+        mWindowManager.removeView(mNavigationBarView);
         mNavigationBarView.setVisibility(View.GONE);
 
 
