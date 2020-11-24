@@ -423,7 +423,6 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("dnd")) return new DndTile(this);
         else if (tileSpec.equals("inversion")) return new ColorInversionTile(this);
         else if (tileSpec.equals("airplane")) return new AirplaneModeTile(this);
-        else if (tileSpec.equals("navigation")) return new NavigationBarTile(this);
         else if (tileSpec.equals("work")) return new WorkModeTile(this);
         else if (tileSpec.equals("rotation")) return new RotationLockTile(this);
         else if (tileSpec.equals("flashlight")) return new FlashlightTile(this);

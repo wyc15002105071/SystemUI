@@ -9,6 +9,7 @@ import android.widget.Switch;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
+import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.statusbar.policy.NavigationBarController;
 
 public class NavigationBarTile extends QSTile<QSTile.BooleanState> {
@@ -42,31 +43,16 @@ public class NavigationBarTile extends QSTile<QSTile.BooleanState> {
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
         state.label = "NavigationBar";
-        if (true) {
-            Drawable icon = mHost.getContext().getDrawable(R.drawable.ic_signal_flashlight_disable)
-                    .mutate();
-            final int disabledColor = mHost.getContext().getColor(R.color.qs_tile_tint_unavailable);
-            icon.setTint(disabledColor);
-            state.icon = new DrawableIcon(icon);
-            state.label = new SpannableStringBuilder().append(state.label,
-                    new ForegroundColorSpan(disabledColor),
-                    SpannableStringBuilder.SPAN_INCLUSIVE_INCLUSIVE);
-            state.contentDescription = mContext.getString(
-                    R.string.accessibility_quick_settings_flashlight_unavailable);
-            return;
-        }
-        if (arg instanceof Boolean) {
-            boolean value = (Boolean) arg;
-            if (value == state.value) {
-                return;
-            }
-            state.value = value;
+        final int value = arg instanceof Integer ? (Integer)arg : mSetting.getValue();
+        final boolean airplaneMode = value != 0;
+        state.value = airplaneMode;
+        state.label = mContext.getString(R.string.airplane_mode);
+        if (airplaneMode) {
+            state.icon = mEnable;
         } else {
-            state.value = false;
+            state.icon = mDisable;
         }
-        final AnimationIcon icon = state.value ? mEnable : mDisable;
-        state.icon = icon;
-        state.contentDescription = mContext.getString(R.string.quick_settings_flashlight_label);
+        state.contentDescription = state.label;
         state.minimalAccessibilityClassName = state.expandedAccessibilityClassName
                 = Switch.class.getName();
     }

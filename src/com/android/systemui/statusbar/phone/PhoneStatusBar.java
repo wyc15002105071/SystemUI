@@ -704,7 +704,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
 
         mWindowManager.removeView(mNavigationBarView);
-        mNavigationBarView.setVisibility(View.GONE);
 
 
         // Lastly, call to the icon policy to install/update all the icons.
@@ -1522,6 +1521,17 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
 
+    public void closeNavigationBar(){
+        if(mNavigationBarView == null)
+            return;
+        mWindowManager.removeView(mNavigationBarView);
+    }
+
+    public void showNavigationBar(){
+        if(mNavigationBarView == null)
+            return;
+        mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
+    }
 
     protected void repositionNavigationBar() {
         if (mNavigationBarView == null || !mNavigationBarView.isAttachedToWindow()) return;
@@ -2789,6 +2799,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     break;
                 case MSG_LAUNCH_TRANSITION_TIMEOUT:
                     onLaunchTransitionTimeout();
+                    break;
+                case MSG_CLOSE_NAVIGATION:
+                    closeNavigationBar();
+                    break;
+                case MSG_SHOW_NAVIGATION:
+                    showNavigationBar();
                     break;
             }
         }

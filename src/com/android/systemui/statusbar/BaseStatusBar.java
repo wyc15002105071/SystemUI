@@ -149,6 +149,8 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected static final int MSG_SHOW_PREV_AFFILIATED_TASK = 1025;
     protected static final int MSG_TOGGLE_KEYBOARD_SHORTCUTS_MENU = 1026;
     protected static final int MSG_DISMISS_KEYBOARD_SHORTCUTS_MENU = 1027;
+    protected static final int MSG_SHOW_NAVIGATION = 1028;
+    protected static final int MSG_CLOSE_NAVIGATION = 1029;
 
     protected static final boolean ENABLE_HEADS_UP = true;
     protected static final String SETTING_HEADS_UP_TICKER = "ticker_gets_heads_up";
@@ -2679,4 +2681,5 @@ public abstract class BaseStatusBar extends SystemUI implements
             mAssistManager.startAssist(args);
         }
     }
+
 }
