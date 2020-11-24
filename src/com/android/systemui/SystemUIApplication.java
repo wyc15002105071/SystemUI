@@ -16,16 +16,20 @@
 
 package com.android.systemui;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Process;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.android.systemui.stackdivider.Divider;
 
@@ -35,7 +39,7 @@ import java.util.Map;
 /**
  * Application class for SystemUI.
  */
-public class SystemUIApplication extends Application {
+public class SystemUIApplication extends Application implements View.OnTouchListener{
 
     private static final String TAG = "SystemUIService";
     private static final boolean DEBUG = false;
@@ -113,6 +117,7 @@ public class SystemUIApplication extends Application {
             startServicesIfNeeded(SERVICES_PER_USER);
         }
     }
+
 
     /**
      * Makes sure that all the SystemUI services are running. If they are already running, this is a
@@ -196,5 +201,18 @@ public class SystemUIApplication extends Application {
 
     public SystemUI[] getServices() {
         return mServices;
+    }
+
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
+            if(motionEvent.getPointerCount() == 10){
+                Log.d("SystemUI","多点触控总个数：10");
+                return true;
+            }
+
+        }
+        return false;
     }
 }
