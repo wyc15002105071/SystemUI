@@ -207,11 +207,11 @@ public class SystemUIApplication extends Application implements View.OnTouchList
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-            if(motionEvent.getPointerCount() == 10){
-                Log.d("SystemUI","多点触控总个数：10");
-                return true;
-            }
-
+//            if(motionEvent.getPointerCount() == 10){
+//                Log.d("SystemUI","多点触控总个数：10");
+//                return true;
+//            }
+            Log.d("SystemUI","多点触控总个数:"+motionEvent.getPointerCount());
         }
         return false;
     }
