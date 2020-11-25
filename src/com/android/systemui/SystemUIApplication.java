@@ -212,6 +212,7 @@ public class SystemUIApplication extends Application implements View.OnTouchList
 //                return true;
 //            }
             Log.d("SystemUI","多点触控总个数:"+motionEvent.getPointerCount());
+            return true;
         }
         return false;
     }
