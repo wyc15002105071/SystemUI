@@ -116,6 +116,8 @@ public class SystemUIApplication extends Application implements View.OnTouchList
             // start those components now for the current non-system user.
             startServicesIfNeeded(SERVICES_PER_USER);
         }
+
+
     }
 
 
@@ -206,14 +208,14 @@ public class SystemUIApplication extends Application implements View.OnTouchList
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-//            if(motionEvent.getPointerCount() == 10){
-//                Log.d("SystemUI","多点触控总个数：10");
-//                return true;
-//            }
-            Log.d("SystemUI","多点触控总个数:"+motionEvent.getPointerCount());
-            return true;
+        switch (motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.d("SystemUI","Action_Down");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.d("SystemUI","Action_Move:"+motionEvent.getX()+":"+motionEvent.getY());
+                break;
         }
-        return false;
+        return true;
     }
 }
