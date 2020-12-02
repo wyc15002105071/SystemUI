@@ -507,11 +507,5 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".statusbar.phone.NavigationBarView$NavigationBroadCastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BroadCast_Nav"/>
-            </intent-filter>
-        </receiver>
-
     </application>
 </manifest>

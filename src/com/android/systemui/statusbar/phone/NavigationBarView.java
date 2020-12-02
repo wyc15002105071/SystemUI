@@ -26,6 +26,7 @@ import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -108,18 +109,6 @@ public class NavigationBarView extends LinearLayout {
     private Configuration mConfiguration;
 
     private NavigationBarInflaterView mNavigationInflaterView;
-
-    public class NavigationBroadCastReceiver extends BroadcastReceiver {
-        private String TAG = "NavigationBroadCastReceiver";
-        public NavigationBroadCastReceiver(){
-            super();
-        }
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG,"recv action:android.intent.action.BroadCast_Nav");
-
-        }
-    }
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
@@ -223,6 +212,10 @@ public class NavigationBarView extends LinearLayout {
         mButtonDisatchers.put(R.id.screenshot, new ButtonDispatcher(R.id.screenshot));
         mButtonDisatchers.put(R.id.volume_add, new ButtonDispatcher(R.id.volume_add));
         mButtonDisatchers.put(R.id.volume_sub, new ButtonDispatcher(R.id.volume_sub));
+
+        NavigationBroadCastReceiver navigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
+        IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
+        context.registerReceiver(navigationBroadCastReceiver,intentFilter);
     }
 
     public BarTransitions getBarTransitions() {
