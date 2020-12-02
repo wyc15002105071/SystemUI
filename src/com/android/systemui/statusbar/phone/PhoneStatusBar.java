@@ -1537,12 +1537,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if(mNavigationBarView == null)
             return;
         mWindowManager.removeView(mNavigationBarView);
+        mNavigation_is_show = false;
     }
 
     public void showNavigationBar(){
         if(mNavigationBarView == null)
             return;
         mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
+        mNavigation_is_show = true;
     }
 
     protected void repositionNavigationBar() {
