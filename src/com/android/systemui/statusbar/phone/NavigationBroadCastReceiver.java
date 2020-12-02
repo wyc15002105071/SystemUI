@@ -9,6 +9,6 @@ public class NavigationBroadCastReceiver extends BroadcastReceiver {
     private String TAG = "NavigationBroadCastReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG,"recv action:android.intent.action.BroadCast_Nav");
+        Log.d(TAG,"recv action(internel class):android.intent.action.BroadCast_Nav");
     }
 }
