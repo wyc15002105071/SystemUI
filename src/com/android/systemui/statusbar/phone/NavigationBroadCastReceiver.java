@@ -8,7 +8,7 @@ import android.util.Log;
 public class NavigationBroadCastReceiver extends BroadcastReceiver {
     private String TAG = "NavigationBroadCastReceiver";
 
-    public NavigationBroadCastReceiver(NavigationBarView v){
+    public NavigationBroadCastReceiver(PhoneStatusBar b){
         super();
     }
 

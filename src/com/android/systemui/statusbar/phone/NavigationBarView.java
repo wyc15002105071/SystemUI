@@ -213,9 +213,6 @@ public class NavigationBarView extends LinearLayout {
         mButtonDisatchers.put(R.id.volume_add, new ButtonDispatcher(R.id.volume_add));
         mButtonDisatchers.put(R.id.volume_sub, new ButtonDispatcher(R.id.volume_sub));
 
-        NavigationBroadCastReceiver navigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
-        IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
-        context.registerReceiver(navigationBroadCastReceiver,intentFilter);
     }
 
     public BarTransitions getBarTransitions() {
