@@ -204,12 +204,6 @@
             android:process=":screenshot"
             android:exported="false" />
 
-        <receiver android:name=".statusbar.phone.NavigationBroadCastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BroadCast_Nav"/>
-            </intent-filter>
-        </receiver>
-
         <!-- Called from PhoneWindowManager -->
         <receiver android:name=".screenshot.ScreenshotServiceErrorReceiver"
             android:process=":screenshot"
@@ -512,5 +506,12 @@
                 <action android:name="android.intent.action.SHOW_KEYBOARD_SHORTCUTS" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name=".statusbar.phone.NavigationBroadCastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BroadCast_Nav"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>
