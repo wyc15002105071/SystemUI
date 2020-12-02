@@ -349,6 +349,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private boolean mWakeUpComingFromTouch;
     private PointF mWakeUpTouchLocation;
     private boolean mScreenTurningOn;
+    private NavigationBroadCastReceiver mNavigationBroadCastReceiver = null;
+
 
     int mPixelFormat;
     Object mQueueLock = new Object();
@@ -742,9 +744,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 Settings.System.getUriFor(Settings.System.SCREENSHOT_BUTTON_SHOW), true,
                 screenshotShowObserver);
         //////////////////////////////////////////////
-        NavigationBroadCastReceiver navigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
-        IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
-        mContext.registerReceiver(navigationBroadCastReceiver,intentFilter);
+        if(mNavigationBarView == null){
+            mNavigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
+            IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
+            mContext.registerReceiver(mNavigationBroadCastReceiver,intentFilter);
+        }
         /////////////////////////////////////////////////
     }
 
