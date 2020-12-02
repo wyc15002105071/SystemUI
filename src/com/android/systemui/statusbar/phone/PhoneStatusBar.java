@@ -744,7 +744,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 Settings.System.getUriFor(Settings.System.SCREENSHOT_BUTTON_SHOW), true,
                 screenshotShowObserver);
         //////////////////////////////////////////////
-        if(mNavigationBarView == null){
+        if(mNavigationBroadCastReceiver == null){
             mNavigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
             IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
             mContext.registerReceiver(mNavigationBroadCastReceiver,intentFilter);
