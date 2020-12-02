@@ -23,7 +23,9 @@ import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.app.ActivityManagerNative;
 import android.app.StatusBarManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -100,10 +102,21 @@ public class NavigationBarView extends LinearLayout {
     private boolean mInCarMode = false;
     private boolean mDockedStackExists;
 
+
+
     private final SparseArray<ButtonDispatcher> mButtonDisatchers = new SparseArray<>();
     private Configuration mConfiguration;
 
     private NavigationBarInflaterView mNavigationInflaterView;
+
+    public class NavigationBroadCastReceiver extends BroadcastReceiver {
+        private String TAG = "NavigationBroadCastReceiver";
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG,"recv action:android.intent.action.BroadCast_Nav");
+            
+        }
+    }
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
