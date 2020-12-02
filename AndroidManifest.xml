@@ -204,6 +204,12 @@
             android:process=":screenshot"
             android:exported="false" />
 
+        <receiver android:name=".statusbar.phone.NavigationBroadCastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BroadCast_Nav"/>
+            </intent-filter>
+        </receiver>
+
         <!-- Called from PhoneWindowManager -->
         <receiver android:name=".screenshot.ScreenshotServiceErrorReceiver"
             android:process=":screenshot"
