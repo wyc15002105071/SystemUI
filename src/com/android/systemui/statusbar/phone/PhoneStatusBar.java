@@ -350,7 +350,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private PointF mWakeUpTouchLocation;
     private boolean mScreenTurningOn;
     private NavigationBroadCastReceiver mNavigationBroadCastReceiver = null;
-
+    private boolean mNavigation_is_show = false;
 
     int mPixelFormat;
     Object mQueueLock = new Object();
@@ -1529,6 +1529,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mWindowManager.addView(mNavigationBarView, getNavigationBarLayoutParams());
     }
 
+    public boolean getNavigationStatus(){
+        return mNavigation_is_show;
+    }
 
     public void closeNavigationBar(){
         if(mNavigationBarView == null)
