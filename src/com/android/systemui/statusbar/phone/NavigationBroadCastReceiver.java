@@ -23,13 +23,13 @@ public class NavigationBroadCastReceiver extends BroadcastReceiver {
         if(flag == false)return;
         flag = false;
         Log.d(TAG,"recv action(internel class):android.intent.action.BroadCast_Nav");
-//        if(mPhoneStatusBar == null)
-//            return;
-//        if(mPhoneStatusBar.getNavigationStatus()){
-//            mPhoneStatusBar.closeNavigationBar();
-//        }else{
-//            mPhoneStatusBar.showNavigationBar();
-//        }
+        if(mPhoneStatusBar == null)
+            return;
+        if(mPhoneStatusBar.getNavigationStatus()){
+            mPhoneStatusBar.closeNavigationBar();
+        }else{
+            mPhoneStatusBar.showNavigationBar();
+        }
         flag = true;
     }
 }
