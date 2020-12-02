@@ -111,10 +111,11 @@ public class NavigationBarView extends LinearLayout {
 
     public class NavigationBroadCastReceiver extends BroadcastReceiver {
         private String TAG = "NavigationBroadCastReceiver";
+        NavigationBroadCastReceiver(){}
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG,"recv action:android.intent.action.BroadCast_Nav");
-            
+
         }
     }
 
