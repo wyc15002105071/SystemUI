@@ -744,6 +744,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 Settings.System.getUriFor(Settings.System.SCREENSHOT_BUTTON_SHOW), true,
                 screenshotShowObserver);
         //////////////////////////////////////////////
+        //ADD：十指触摸广播
         if(mNavigationBroadCastReceiver == null){
             mNavigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
             IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
@@ -1536,6 +1537,27 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void closeNavigationBar(){
         if(mNavigationBarView == null)
             return;
+        try {
+            WindowManagerGlobal.getWindowManagerService()
+                    .watchRotation(new IRotationWatcher.Stub() {
+                        @Override
+                        public void onRotationChanged(int rotation) throws RemoteException {
+                            // We need this to be scheduled as early as possible to beat the redrawing of
+                            // window in response to the orientation change.
+                            Message msg = Message.obtain(mHandler, () -> {
+                                if (mNavigationBarView != null
+                                        && mNavigationBarView.needsReorient(rotation)) {
+                                    repositionNavigationBar();
+                                }
+                            });
+                            msg.setAsynchronous(true);
+                            mHandler.sendMessageAtFrontOfQueue(msg);
+                        }
+                    });
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+
         mWindowManager.removeView(mNavigationBarView);
         mNavigation_is_show = false;
     }
