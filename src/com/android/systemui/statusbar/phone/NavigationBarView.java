@@ -546,10 +546,15 @@ public class NavigationBarView extends LinearLayout {
     }
 
     void updateRotatedViews() {
+        //modify by wang 2021-01-13
+//        mRotatedViews[Surface.ROTATION_0] =
+//                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot0);
+//        mRotatedViews[Surface.ROTATION_270] =
+//                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot90);
         mRotatedViews[Surface.ROTATION_0] =
-                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot0);
+                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot90);
         mRotatedViews[Surface.ROTATION_270] =
-                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot90);
+                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot0);
 
         updateCurrentView();
     }
