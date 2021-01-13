@@ -509,7 +509,6 @@ public class NavigationBarView extends LinearLayout {
 
         getImeSwitchButton().setOnClickListener(mImeSwitcherClickListener);
 
-
         try {
             WindowManagerGlobal.getWindowManagerService().registerDockedStackListener(new Stub() {
                 @Override
@@ -547,15 +546,10 @@ public class NavigationBarView extends LinearLayout {
     }
 
     void updateRotatedViews() {
-        //modify by wang 2021-01-13
-//        mRotatedViews[Surface.ROTATION_0] =
-//                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot0);
-//        mRotatedViews[Surface.ROTATION_270] =
-//                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot90);
         mRotatedViews[Surface.ROTATION_0] =
-                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot90);
+                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot0);
         mRotatedViews[Surface.ROTATION_270] =
-                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot0);
+                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot90);
 
         updateCurrentView();
     }
@@ -569,10 +563,9 @@ public class NavigationBarView extends LinearLayout {
         for (int i=0; i<4; i++) {
             mRotatedViews[i].setVisibility(View.GONE);
         }
-
-        mCurrentView = mRotatedViews[Surface.ROTATION_0];
+        mCurrentView = mRotatedViews[rot];
         mCurrentView.setVisibility(View.VISIBLE);
-        mNavigationInflaterView.setAlternativeOrder(rot == Surface.ROTATION_0);
+        mNavigationInflaterView.setAlternativeOrder(rot == Surface.ROTATION_90);
         for (int i = 0; i < mButtonDisatchers.size(); i++) {
             mButtonDisatchers.valueAt(i).setCurrentView(mCurrentView);
         }
