@@ -570,9 +570,9 @@ public class NavigationBarView extends LinearLayout {
             mRotatedViews[i].setVisibility(View.GONE);
         }
 
-        mCurrentView = mRotatedViews[rot];
+        mCurrentView = mRotatedViews[Surface.ROTATION_0];
         mCurrentView.setVisibility(View.VISIBLE);
-        mNavigationInflaterView.setAlternativeOrder(rot == Surface.ROTATION_0);
+        mNavigationInflaterView.setAlternativeOrder(rot == Surface.ROTATION_90);
         for (int i = 0; i < mButtonDisatchers.size(); i++) {
             mButtonDisatchers.valueAt(i).setCurrentView(mCurrentView);
         }
