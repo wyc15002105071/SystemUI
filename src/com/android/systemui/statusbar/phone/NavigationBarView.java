@@ -509,6 +509,7 @@ public class NavigationBarView extends LinearLayout {
 
         getImeSwitchButton().setOnClickListener(mImeSwitcherClickListener);
 
+
         try {
             WindowManagerGlobal.getWindowManagerService().registerDockedStackListener(new Stub() {
                 @Override
