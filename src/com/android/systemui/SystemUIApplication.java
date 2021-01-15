@@ -119,14 +119,6 @@ public class SystemUIApplication extends Application implements View.OnTouchList
             startServicesIfNeeded(SERVICES_PER_USER);
         }
 
-
-        PackageManager packageManager = getPackageManager();
-        String packname = "com.android.philipsdemo";
-        if (checkPackInfo(packname)) {
-            Intent intent = packageManager.getLaunchIntentForPackage(packname);
-            startActivity(intent);
-        } else {
-        }
     }
 
     private boolean checkPackInfo(String packname) {
