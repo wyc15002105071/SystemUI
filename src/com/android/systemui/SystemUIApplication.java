@@ -22,6 +22,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Process;
@@ -118,13 +120,24 @@ public class SystemUIApplication extends Application implements View.OnTouchList
         }
 
 
-        Intent LaunchIntent = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.CUPCAKE) {
-            LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.android.philipsdemo");
+        PackageManager packageManager = getPackageManager();
+        String packname = "com.android.philipsdemo";
+        if (checkPackInfo(packname)) {
+            Intent intent = packageManager.getLaunchIntentForPackage(packname);
+            startActivity(intent);
+        } else {
         }
-        startActivity(LaunchIntent);
     }
 
+    private boolean checkPackInfo(String packname) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(packname, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageInfo != null;
+    }
 
     /**
      * Makes sure that all the SystemUI services are running. If they are already running, this is a
