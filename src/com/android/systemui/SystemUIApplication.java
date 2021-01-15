@@ -118,6 +118,11 @@ public class SystemUIApplication extends Application implements View.OnTouchList
         }
 
 
+        Intent LaunchIntent = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.CUPCAKE) {
+            LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.android.philipsdemo");
+        }
+        startActivity(LaunchIntent);
     }
 
 
