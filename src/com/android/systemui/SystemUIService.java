@@ -31,6 +31,15 @@ public class SystemUIService extends Service {
         super.onCreate();
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent();
+                ComponentName cn = new ComponentName("com.android.philipsdemo", "com.android.philipsdemo.MainActivity");
+                intent.setComponent(cn);
+                startActivity(intent);
+            }
+        }).start();
     }
 
     @Override
