@@ -19,6 +19,7 @@ package com.android.systemui;
 import android.app.Activity;
 import android.app.Application;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -118,6 +119,12 @@ public class SystemUIApplication extends Application implements View.OnTouchList
             // start those components now for the current non-system user.
             startServicesIfNeeded(SERVICES_PER_USER);
         }
+
+
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName("com.example.demo", "com.example.demo.MainActivity");
+        intent.setComponent(cn);
+        startActivity(intent);
 
     }
 

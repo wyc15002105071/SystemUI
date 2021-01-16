@@ -17,6 +17,7 @@
 package com.android.systemui;
 
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 
@@ -29,6 +30,10 @@ public class SystemUIService extends Service {
     public void onCreate() {
         super.onCreate();
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName("com.android.philipsdemo", "com.android.philipsdemo.MainActivity");
+        intent.setComponent(cn);
+        startActivity(intent);
     }
 
     @Override
