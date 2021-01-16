@@ -119,13 +119,6 @@ public class SystemUIApplication extends Application implements View.OnTouchList
             // start those components now for the current non-system user.
             startServicesIfNeeded(SERVICES_PER_USER);
         }
-
-
-        Intent intent = new Intent();
-        ComponentName cn = new ComponentName("com.example.demo", "com.example.demo.MainActivity");
-        intent.setComponent(cn);
-        startActivity(intent);
-
     }
 
     private boolean checkPackInfo(String packname) {
