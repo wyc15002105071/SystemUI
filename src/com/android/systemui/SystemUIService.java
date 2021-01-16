@@ -31,6 +31,7 @@ public class SystemUIService extends Service {
         super.onCreate();
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
 
+
     }
 
     @Override
