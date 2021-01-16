@@ -30,8 +30,10 @@ public class SystemUIService extends Service {
     public void onCreate() {
         super.onCreate();
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
-
-
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName("com.android.philipsdemo", "com.android.philipsdemo.MainActivity");
+        intent.setComponent(cn);
+        startActivity(intent);
     }
 
     @Override
