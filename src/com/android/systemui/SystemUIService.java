@@ -30,16 +30,12 @@ public class SystemUIService extends Service {
     public void onCreate() {
         super.onCreate();
         ((SystemUIApplication) getApplication()).startServicesIfNeeded();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent();
-                ComponentName cn = new ComponentName("com.android.philipsdemo", "com.android.philipsdemo.MainActivity");
-                intent.setComponent(cn);
-                startActivity(intent);
-            }
-        }).start();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        /**知道要跳转应用的包命与目标Activity*/
+        ComponentName componentName = new ComponentName("com.android.philipsdemo", "com.android.philipsdemo.MainActivity");
+        intent.setComponent(componentName);
+        intent.putExtra("", "");//这里Intent传值
+        startActivity(intent);
     }
 
     @Override

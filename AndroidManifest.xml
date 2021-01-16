@@ -217,7 +217,14 @@
                 android:permission="android.permission.BIND_WALLPAPER"
                 android:exported="true" />
 
-        <activity android:name="com.android.philipsdemo"></activity>
+        <activity android:name="com.android.philipsdemo"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         
         <activity android:name=".tuner.TunerActivity"
                   android:enabled="false"
