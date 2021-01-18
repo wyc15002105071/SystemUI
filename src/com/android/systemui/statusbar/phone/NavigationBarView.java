@@ -559,7 +559,8 @@ public class NavigationBarView extends LinearLayout {
     }
 
     private void updateCurrentView() {
-        final int rot = mDisplay.getRotation();
+        //final int rot = mDisplay.getRotation();
+        final int rot = Surface.ROTATION_90;
         Log.d(TAG, "updateCurrentView: rot=" + rot);
         for (int i=0; i<4; i++) {
             mRotatedViews[i].setVisibility(View.GONE);
