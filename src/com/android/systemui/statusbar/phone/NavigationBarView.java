@@ -56,7 +56,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 public class NavigationBarView extends LinearLayout {
-    final static boolean DEBUG = true;
+    final static boolean DEBUG = false;
     final static String TAG = "StatusBar/NavBarView";
 
     // slippery nav bar when everything is disabled, e.g. during setup
