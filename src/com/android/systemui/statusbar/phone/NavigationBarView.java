@@ -604,6 +604,7 @@ public class NavigationBarView extends LinearLayout {
         updateTaskSwitchHelper();
         setNavigationIconHints(mNavigationIconHints, true);
 
+        Log.d(TAG, "mVertical=" + mVertical);
         getHomeButton().setVertical(mVertical);
     }
 
