@@ -594,7 +594,8 @@ public class NavigationBarView extends LinearLayout {
         setDisabledFlags(mDisabledFlags, true /* force */);
         setMenuVisibility(mShowMenu, true /* force */);
 
-        if (DEBUG) {
+
+        if (true) {
             Log.d(TAG, "reorient(): rot=" + mCurrentRotation);
         }
 
