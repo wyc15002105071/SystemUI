@@ -704,7 +704,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
         // in session state
 
-        //addNavigationBar();
+        addNavigationBar();
+
+        closeNavigationBar();
         mNavigation_is_show = false;
 
 
@@ -1553,6 +1555,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         //getNavigationBarView().setVisibility(View.VISIBLE);
         //if(getNavigationBarView().getVisibility() == View.GONE)
         //    getNavigationBarView().setVisibility(View.VISIBLE);
+        mDisplay = ((WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE))
+                .getDefaultDisplay();
+        updateDisplaySize();
+        mScrimSrcModeEnabled = mContext.getResources().getBoolean(
+                R.bool.config_status_bar_scrim_behind_use_src);
+
+        updateDisplaySize();
         addNavigationBar();
 
         mNavigation_is_show = true;
