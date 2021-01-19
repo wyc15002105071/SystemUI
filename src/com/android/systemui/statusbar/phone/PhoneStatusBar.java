@@ -706,7 +706,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         addNavigationBar();
 
-        //closeNavigationBar();
+        closeNavigationBar();
         mNavigation_is_show = true;
 
 
@@ -1551,19 +1551,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void showNavigationBar(){
         if(mNavigationBarView == null)
             return;
-        //mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
-        //getNavigationBarView().setVisibility(View.VISIBLE);
-        //if(getNavigationBarView().getVisibility() == View.GONE)
-        //    getNavigationBarView().setVisibility(View.VISIBLE);
-        mDisplay = ((WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE))
-                .getDefaultDisplay();
-        updateDisplaySize();
-        mScrimSrcModeEnabled = mContext.getResources().getBoolean(
-                R.bool.config_status_bar_scrim_behind_use_src);
 
-        updateDisplaySize();
-        addNavigationBar();
-
+        //addNavigationBar();
+        start();
         mNavigation_is_show = true;
     }
 
