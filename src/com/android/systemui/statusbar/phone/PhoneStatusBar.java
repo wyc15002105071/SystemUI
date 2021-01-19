@@ -1536,8 +1536,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             return;
 
 
-        mWindowManager.removeView(mNavigationBarView);
         getNavigationBarView().setVisibility(View.GONE);
+        mWindowManager.removeView(mNavigationBarView);
+
         mNavigation_is_show = false;
     }
 
@@ -1545,10 +1546,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if(mNavigationBarView == null)
             return;
         //mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
-        addNavigationBar();
         getNavigationBarView().setVisibility(View.VISIBLE);
         if(getNavigationBarView().getVisibility() == View.GONE)
             getNavigationBarView().setVisibility(View.VISIBLE);
+        addNavigationBar();
+
         mNavigation_is_show = true;
     }
 
