@@ -547,9 +547,9 @@ public class NavigationBarView extends LinearLayout {
 
     void updateRotatedViews() {
         mRotatedViews[Surface.ROTATION_0] =
-                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot0);
+                mRotatedViews[Surface.ROTATION_180] = findViewById(R.id.rot90);
         mRotatedViews[Surface.ROTATION_270] =
-                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot90);
+                mRotatedViews[Surface.ROTATION_90] = findViewById(R.id.rot0);
 
         updateCurrentView();
     }
@@ -565,7 +565,9 @@ public class NavigationBarView extends LinearLayout {
         for (int i=0; i<4; i++) {
             mRotatedViews[i].setVisibility(View.GONE);
         }
-        mCurrentView = mRotatedViews[rot];
+
+        //mCurrentView = mRotatedViews[rot];
+        mCurrentView = mRotatedViews[Surface.ROTATION_0];
         mCurrentView.setVisibility(View.VISIBLE);
         mNavigationInflaterView.setAlternativeOrder(rot == Surface.ROTATION_0);
         for (int i = 0; i < mButtonDisatchers.size(); i++) {
