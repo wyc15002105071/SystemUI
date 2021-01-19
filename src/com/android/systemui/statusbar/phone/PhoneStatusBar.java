@@ -2825,9 +2825,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     break;
                 case MSG_CLOSE_NAVIGATION:
                     closeNavigationBar();
+                    Log.d("MSG_CLOSE_NAVIGATION","CLOSE");
                     break;
                 case MSG_SHOW_NAVIGATION:
                     showNavigationBar();
+                    Log.d("MSG_SHOW_NAVIGATION","SHOW");
                     break;
             }
         }
