@@ -703,6 +703,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // in session state
 
         showNavigationBar();
+        getNavigationBarView().setVisibility(View.GONE);
         //addNavigationBar();
         //closeNavigationBar();
         // Lastly, call to the icon policy to install/update all the icons.
