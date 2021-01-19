@@ -704,7 +704,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
         // in session state
 
-        addNavigationBar();
+        //addNavigationBar();
+        mNavigation_is_show = false;
+
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -2825,11 +2827,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     break;
                 case MSG_CLOSE_NAVIGATION:
                     closeNavigationBar();
-                    Log.d("MSG_CLOSE_NAVIGATION","CLOSE");
+                    //Log.d("MSG_CLOSE_NAVIGATION","CLOSE");
                     break;
                 case MSG_SHOW_NAVIGATION:
                     showNavigationBar();
-                    Log.d("MSG_SHOW_NAVIGATION","SHOW");
+                    //Log.d("MSG_SHOW_NAVIGATION","SHOW");
                     break;
             }
         }
