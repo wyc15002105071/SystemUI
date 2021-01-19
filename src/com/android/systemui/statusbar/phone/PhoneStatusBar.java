@@ -703,7 +703,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // in session state
 
         //addNavigationBar();
-
+        showNavigationBar();
         //closeNavigationBar();
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -1536,7 +1536,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             return;
 
 
-        getNavigationBarView().setVisibility(View.GONE);
+        //getNavigationBarView().setVisibility(View.GONE);
         //mWindowManager.removeView(mNavigationBarView);
         mWindowManager.removeViewImmediate(mNavigationBarView);
         mNavigationBarView = null;
