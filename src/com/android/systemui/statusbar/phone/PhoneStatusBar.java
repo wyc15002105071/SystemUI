@@ -293,6 +293,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
      */
     private static final float SRC_MIN_ALPHA = 0.002f;
 
+    private NavigationBroadCastReceiver mNavigationBroadCastReceiver = null;
+    private boolean mNavigation_is_show = false;
+
     static {
         boolean onlyCoreApps;
         boolean freeformWindowManagement;
@@ -737,12 +740,45 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.SCREENSHOT_BUTTON_SHOW), true,
                 screenshotShowObserver);
+
+        //////////////////////////////////////////////
+        //ADD：十指触摸广播
+        if(mNavigationBroadCastReceiver == null){
+            mNavigationBroadCastReceiver = new NavigationBroadCastReceiver(this);
+            IntentFilter intentFilter = new IntentFilter("android.intent.action.BroadCast_Nav");
+            mContext.registerReceiver(mNavigationBroadCastReceiver,intentFilter);
+        }
+        /////////////////////////////////////////////////
     }
 
     protected void createIconController() {
         mIconController = new StatusBarIconController(
                 mContext, mStatusBarView, mKeyguardStatusBar, this);
     }
+
+    public void closeNavigationBar(){
+        if(mNavigationBarView == null)
+            return;
+
+
+        getNavigationBarView().setVisibility(View.GONE);
+        //mWindowManager.removeView(mNavigationBarView);
+        mWindowManager.removeViewImmediate(mNavigationBarView);
+        mNavigation_is_show = false;
+    }
+
+    public void showNavigationBar(){
+        if(mNavigationBarView == null)
+            return;
+        //mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
+        getNavigationBarView().setVisibility(View.VISIBLE);
+        if(getNavigationBarView().getVisibility() == View.GONE)
+            getNavigationBarView().setVisibility(View.VISIBLE);
+        addNavigationBar();
+
+        mNavigation_is_show = true;
+    }
+
 
     // ================================================================================
     // Constructing the view
