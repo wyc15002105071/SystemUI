@@ -756,6 +756,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mContext, mStatusBarView, mKeyguardStatusBar, this);
     }
 
+    public boolean getNavigationStatus(){
+        return mNavigation_is_show;
+    }
+
     public void closeNavigationBar(){
         if(mNavigationBarView == null)
             return;
