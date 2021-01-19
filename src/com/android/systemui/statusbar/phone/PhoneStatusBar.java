@@ -702,9 +702,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
         // in session state
 
-        addNavigationBar();
-
-        closeNavigationBar();
+        //addNavigationBar();
+        showNavigationBar();
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
                 mHotspotController, mUserInfoController, mBluetoothController,
@@ -1525,7 +1524,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         prepareNavigationBarView();
 
         mWindowManager.addView(mNavigationBarView, getNavigationBarLayoutParams());
-        refreshLayout(mNavigationBarView.getLayoutDirection());
     }
 
     public boolean getNavigationStatus(){
@@ -1545,17 +1543,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     public void showNavigationBar(){
-        if(mNavigationBarView != null)
-            return;
+        if(mNavigationBarView == null)
+            createNavigationBarView(mContext);
         //mWindowManager.addView(mNavigationBarView,getNavigationBarLayoutParams());
 //        getNavigationBarView().setVisibility(View.VISIBLE);
 //        if(getNavigationBarView().getVisibility() == View.GONE)
 //            getNavigationBarView().setVisibility(View.VISIBLE);
-        createNavigationBarView(mContext);
         addNavigationBar();
-        getNavigationBarView().setVisibility(View.GONE);
-        getNavigationBarView().setVisibility(View.VISIBLE);
-
 
         mNavigation_is_show = true;
     }
