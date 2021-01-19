@@ -2819,6 +2819,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 case MSG_LAUNCH_TRANSITION_TIMEOUT:
                     onLaunchTransitionTimeout();
                     break;
+                case MSG_CLOSE_NAVIGATION:
+                    closeNavigationBar();
+                    break;
+                case MSG_SHOW_NAVIGATION:
+                    showNavigationBar();
+                    break;
             }
         }
     }
