@@ -706,8 +706,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         addNavigationBar();
 
-        closeNavigationBar();
-        mNavigation_is_show = false;
+        //closeNavigationBar();
+        mNavigation_is_show = true;
 
 
         // Lastly, call to the icon policy to install/update all the icons.
