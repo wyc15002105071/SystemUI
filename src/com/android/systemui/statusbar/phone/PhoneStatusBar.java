@@ -704,10 +704,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
         // in session state
 
-        addNavigationBar();
+        //addNavigationBar();
 
         //closeNavigationBar();
-        mNavigation_is_show = true;
+        mNavigation_is_show = false;
 
 
         // Lastly, call to the icon policy to install/update all the icons.
