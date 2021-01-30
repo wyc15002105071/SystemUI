@@ -1492,7 +1492,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         ButtonDispatcher volumeSubButton=mNavigationBarView.getVolumeSubButton();
 
         //modify by wang
-        /boolean isShowVolumeButton="true".equals(SystemProperties.get("ro.rk.systembar.voiceicon","true"));
+        boolean isShowVolumeButton="true".equals(SystemProperties.get("ro.rk.systembar.voiceicon","true"));
         //boolean isShowVolumeButton = false;
         if(isShowVolumeButton){
             volumeAddButton.setVisibility(View.VISIBLE);
