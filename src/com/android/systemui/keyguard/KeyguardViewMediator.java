@@ -231,7 +231,7 @@ public class KeyguardViewMediator extends SystemUI {
     /**
      * External apps (like the phone app) can tell us to disable the keygaurd.
      */
-    private boolean mExternallyEnabled = false;
+    private boolean mExternallyEnabled = true;
 
     /**
      * Remember if an external call to {@link #setKeyguardEnabled} with value
