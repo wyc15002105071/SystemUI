@@ -1480,8 +1480,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         screenshotButton.setVisibility(View.VISIBLE);
 
         //modify by wang
-        //boolean isShow=Settings.System.getInt(mContext.getContentResolver(), Settings.System.SCREENSHOT_BUTTON_SHOW, 1)==1;
-        boolean isShow = false;
+        boolean isShow=Settings.System.getInt(mContext.getContentResolver(), Settings.System.SCREENSHOT_BUTTON_SHOW, 1)==1;
+        //boolean isShow = false;
         if(isShow){
             screenshotButton.setVisibility(View.VISIBLE);
         }else{
@@ -1492,8 +1492,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         ButtonDispatcher volumeSubButton=mNavigationBarView.getVolumeSubButton();
 
         //modify by wang
-        //boolean isShowVolumeButton="true".equals(SystemProperties.get("ro.rk.systembar.voiceicon","true"));
-        boolean isShowVolumeButton = false;
+        /boolean isShowVolumeButton="true".equals(SystemProperties.get("ro.rk.systembar.voiceicon","true"));
+        //boolean isShowVolumeButton = false;
         if(isShowVolumeButton){
             volumeAddButton.setVisibility(View.VISIBLE);
             volumeSubButton.setVisibility(View.VISIBLE);
