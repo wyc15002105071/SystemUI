@@ -3581,6 +3581,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mRemoteInputController = new RemoteInputController(mStatusBarWindowManager,
                 mHeadsUpManager);
         mStatusBarWindowManager.add(mStatusBarWindow, getStatusBarHeight());
+        //add by wang
+        mStatusBarView.setVisibility(View.GONE);
     }
 
     // called by makeStatusbar and also by PhoneStatusBarView
